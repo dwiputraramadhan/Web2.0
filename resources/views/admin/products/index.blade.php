@@ -23,40 +23,40 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Create At</th>
-                        <th>Aksi</th>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Create At</th>
+                            <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
-                    @foreach($products as $product)
-                        <td>{{$product['id']}}</td>
-                        <td>{{$product['name']}}</td>
-                        <td>{{$product['price']}}</td>
-                        <td>{{$product['created_at']}}</td>
-                        <td>
-                        <a href="{{route('admin.products.edit',$product->id)}}" class="btn btn-primary">Edit</a>
-                        <a href="{{route('admin.products.show',$product->id)}}" class="btn btn-danger">Detail</a>
-                        <form action="{{route('admin.products.destroy',$product->id)}}" method="post">
-                                 @csrf
-                                @method('Delete')
-                                <button class="btn btn-primary" onclick="return confirm('Yakin Mau di Hapus ?')" type="submit">Delete</button>
-                        </form>
-                        </td>
-                        
-                        </tbody>
+                        @php $no = 1;
+                        @endphp
+                        @foreach($products as $product)
+                        <tr>
+                            <td>{{$no++}}</td>
+                            <td>{{$product['name']}}</td>
+                            <td>{{$product['price']}}</td>
+                            <td>{{$product['created_at']}}</td>
+                            <td>
+                            <a href="{{route('admin.products.edit',$product->id)}}" class="btn btn-warning">Edit</a>
+                            <a href="{{route('admin.products.show',$product->id)}}" class="btn btn-success">Detail</a>
+                            @csrf
+                                    @method('Delete')
+                            <a href="{{route('admin.products.destroy',$product->id)}}" method="post" class="btn btn-danger" onclick="return confirm('Yakin Mau di Hapus ?')" type="submit">Delete</a>
+                            </td>
+                        </tr>
                         @endforeach
+                        </tbody>
+                         
                         <tfoot>
                         <tr>
-                        <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Create At</th>
-                        <th>Aksi</th>
-                        </tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Create At</th>
+                            <th>Aksi</th>
                         </tr>
                         </tfoot>
                     </table>

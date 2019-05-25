@@ -33,7 +33,6 @@
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-yellow layout-top-nav">
 <div class="wrapper">
-
   <header class="main-header">
     <nav class="navbar navbar-static-top">
       <div class="container">
@@ -48,16 +47,17 @@
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav mr-auto">
           @if (Auth::check())
-            <li class="nav nav-item dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="navbarDropdown">Product <span class="caret"></span></a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('admin.products.index')
-                        }}">List</a>
-                            <br>
-                    <a class="dropdown-item" href="{{ route('admin.products.create')
-                        }}">Tambah</a>
-                </div>
-            </li>
+          <li class="<?php if(isset($menu)) if($menu == 'product') echo 'active'?>">
+              <!--product-->
+                        <a class="dropdown-toggle" style="cursor: pointer;" type="button" data-toggle="dropdown">
+                          <i class="fa fa-tasks"></i>
+                          Product
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{{ route('admin.products.index') }}">List</a></li>
+                            <li><a href="{{ route('admin.products.create') }}">Tambah</a></li>
+                          </ul>
+                        </li>
 
           <!-- carts -->
           <li class="nav-item">
@@ -69,9 +69,9 @@
                 @endif
                 </a>
          </li>
-          <!-- carts -->
+          <!-- Order -->
           <li class="nav-item dropdown">
-                <a class="glyphicon glyphicon-sort-by-order" aria-hidden="true" href="#" id="navbarDropdown"
+          <a class="glyphicon glyphicon-sort-by-order" aria-hidden="true" href="#" id="navbarDropdown"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Order
                 </a>
@@ -126,23 +126,17 @@
       <!-- /.container-fluid -->
     </nav>
   </header>
+
+
   <!-- Full Width Column -->
   <div class="content-wrapper">
     <main class="py-4">
         @yield('content')
     </main>
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="container">
-      <div class="pull-right hidden-xs">
-        <!-- <b>Version</b> 2.4.0 -->
-      </div>
-      <strong>Copyright &copy; 2019 <a href="https://adminlte.io">Dwi Putra Ramadhan</a>.</strong> All rights
-      reserved.
-    </div>
-    <!-- /.container -->
-  </footer>
+
+
+  <!-- /.content-wrapper --> 
 </div>
 <!-- ./wrapper -->
 
@@ -166,7 +160,7 @@
 <script>
   $(function () {
     $('#example1').DataTable();
-    $('#example1').DataTable({
+    $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : false,
@@ -176,6 +170,5 @@
     });
   });
 </script>
-
 </body>
 </html>

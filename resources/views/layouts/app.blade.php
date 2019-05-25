@@ -30,7 +30,7 @@
 </head>
 <body class="hold-transition skin-blue layout-top-nav">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -69,7 +69,7 @@
                         <!-- carts -->
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle fa fa-archive" aria-hidden="true" href="#" id="navbarDropdown"
+                            <a class="glyphicon glyphicon-sort-by-order" aria-hidden="true" href="#" id="navbarDropdown"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Order
                                 </a>

@@ -25,7 +25,7 @@
         
         <div class="col-md-3">
             <div class="card"> 
-                <img src="{{ asset('image_files/'.$product->image_url) }}" class="card-img-top" alt="..." width="150px" height="150px">
+                <img src="{{ asset('image_files/'.$product->image_url) }}" class="thumbail" alt="..." width="80px" height="80px">
                 <div class="card-body">
                     <h5 class="card-title">
                         <a href="{{ route('products.show', ['id' => $product->id]) }}">
@@ -66,7 +66,7 @@
                         products += '<div class="row mt-4">';
                     }
                     products += '<div class="col">'+
-                    '<div class="card">'+'<img src="/image_files/'+ product.image_url+'" class="card-img-top" alt="...">'+
+                    '<div class="card">'+'<img src="/image_files/'+ product.image_url+'" class="thumbail" alt="...">'+
                     '<div class="card-body">'+
                         '<h5 class="card-title">'+
                             '<a href="/products/'+product.id+'">'+
